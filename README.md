@@ -1,4 +1,4 @@
-rtsim
+RTSim
 =====
 
 Road traffic simulator.
