@@ -1,0 +1,28 @@
+Model Description
+=================
+
+Introduction
+------------
+
+Model consists of road network and cars. Road network itself consists of road
+stretches, crossroads, endpoints and traffic lights. Further I will refer to
+road stretches simply as roads. Think of roads as a vectors - they cannot
+contain crosses in the midlle, if you need to add a crossroad in the middle
+then you ultimatly need to split it into two parts and connect them with
+crossroad. Additional roads can be added to the crossroad thus making it a real
+crossing. Cars can enter and exit model only at endpoins. Each road connect two
+and only two points (either crossroads and/or endpoints). Road ending cannot
+hang "in the air" it must be connected to some point. Endpoint can be connected
+to only one road. Crossroad can be connected to any number of roads, however
+current movement algorithm supposes that there are no more than 4 road
+stretches (normal X-crossing of two roads in terms of real life). Obviously
+crossroad linking two roads doesn't make much sense and can be removed.
+
+Cars are placed on roads. This is a car-following model so each car move
+behaviour solely depends on the distance to the nearest obstacle - another car
+or traffic light. They can also change lines if another line provides better
+oportunities to move.
+
+At each step each car defines it behaviour for this step and evaluates changes
+to its state. These changes are applied only at the end of the step, so each
+car uses the same input date while determining its behavior.
